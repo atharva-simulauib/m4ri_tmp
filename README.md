@@ -13,8 +13,11 @@ In function main:
 3. In for loop, load the random bits into a vector v  of size 1024 using mzd_write_bit
 4. Multiply vector v with matrix A using _mzd_mul_va
 5. Perform this for NUMBER_OF_SAMPLE many vectors and also performing warmup computation (same computation for 25% of NUMBER_OF_SAMPLES.
-6. Start __rdtsco() after the warmup and print avverage cpu cycles.
+6. Start __rdtsc() after the warmup and print avverage cpu cycles.
+
+
+Compiled it using following compiler flags (found in m4ri_config.h and manually selecting some required C file by looking at the gcc errors for references.
 
 ```bash
 gcc m4ri/my.c -Im4ri m4ri/m4ri/mzd.c m4ri/m4ri/misc.c m4ri/m4ri/mmc.c m4ri/m4ri/graycode.c -march=native -mmmx -msse -msse2 -msse3 -mssse3 -msse4.1 -msse4.2 -msha -maes -mavx -mfma -mavx2  -g -O2 -o m4ri/my.exe
-`
+
