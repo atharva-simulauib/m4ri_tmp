@@ -20,4 +20,12 @@ Compiled it using following compiler flags (found in m4ri_config.h and manually 
 
 ```bash
 gcc m4ri/my.c -Im4ri m4ri/m4ri/mzd.c m4ri/m4ri/misc.c m4ri/m4ri/mmc.c m4ri/m4ri/graycode.c -march=native -mmmx -msse -msse2 -msse3 -mssse3 -msse4.1 -msse4.2 -msha -maes -mavx -mfma -mavx2  -g -O2 -o m4ri/my.exe
+```
+
+
+**Question** 
+1. Is this correct usage of the library? For instance the functions used mzd_write_bit for loading data into mzd_t type vectors and _mzd_mul_va for multiplying vector with matrix.
+
+**Results**
+For 10,000 samples, the averege CPU cycles for one vector-matrix computation is about 40,000. 
 
