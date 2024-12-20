@@ -3,13 +3,13 @@ Benchmarking matrix multiplication with M4RI
 
 **Goal**: Have a fixed matrix of size 1024x1024 bits. Generate many random vectors v of size 1024 bit. Compute A x v. Measure average cycles required using rdtscp.
 
-Downloaded the m4ri library from https://bitbucket.org/malb/m4ri and followed the installation stepsof autoreconf and make, etc. (On a Windows machine in WSL)
-The files are in m4ri directory. See my.c for my implementation to test the matrix multiplication. Below I have explained my reasoning for implementating this way.
+Downloaded the m4ri library from https://bitbucket.org/malb/m4ri and followed the installation steps of autoreconf and make, etc. (On a Windows machine in WSL)
+The files are in m4ri directory. See my.c for my implementation to test the matrix multiplication goal described above. Below I have explained my reasoning for implementating this way and the structure of the file.
 
 Following the example file at https://malb.bitbucket.io/m4ri/testsuite_2test_multiplication_8c-example.html.
 In function main:
 1. Create the matrix A using mzd_init and mzd_randomize. This will be fixed
-2. Generate random bits (as many as required and store them
+2. Generate random bits (as many as required, to be used later for random sample vectors) and store them
 3. In for loop, load the random bits into a vector v  of size 1024 using mzd_write_bit
 4. Multiply vector v with matrix A using _mzd_mul_va
 5. Perform this for NUMBER_OF_SAMPLE many vectors and also performing warmup computation (same computation for 25% of NUMBER_OF_SAMPLES.
