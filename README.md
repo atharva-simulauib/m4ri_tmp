@@ -27,6 +27,6 @@ gcc m4ri/my.c -Im4ri m4ri/m4ri/mzd.c m4ri/m4ri/misc.c m4ri/m4ri/mmc.c m4ri/m4ri/
 1. Is this correct usage of the library? For instance the functions used mzd_write_bit for loading data into mzd_t type vectors and _mzd_mul_va for multiplying vector with matrix.
 
 **Results**
-For 10,000 samples, the averege CPU cycles for one vector-matrix computation is about 40,000. 
+For 10,000 samples, the averege CPU cycles for one vector-matrix computation is about 40,000. (On a Windows machinew with i7-1265U 1.80 GHz processor, running WSL
 
 **PS** The result will need to be transposed since the function is for v times A but this is not included in the code as the benchmark is already bit slower than expected, and want to verify that first.
